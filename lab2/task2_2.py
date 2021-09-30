@@ -11,18 +11,17 @@ class Rational:
             try:
                 reduce_form = Fraction(self.__top, self.__bottom)
             except ZeroDivisionError:
-                print("divided by zero")
-                quit()
+                quit("divided by zero")
         else:
-            print("incorrectly entered values")
+            quit("incorrectly entered values")
 
     def show(self):
-        print(self.__top, "/", self.__bottom)
+        return Fraction(self.__top, self.__bottom)
 
     def division(self):
         return self.__top / self.__bottom
 
 
-a = Rational(1, 5)
-a.show()
+a = Rational(2, 10)
+print(a.show())
 print(a.division())
