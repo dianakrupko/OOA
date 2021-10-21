@@ -1,19 +1,19 @@
 import math
+import sys
+
 from fractions import Fraction
 
 
 class Rational:
 
     def __init__(self, top=1, bottom=1):
+        if not isinstance(top, int) or not isinstance(bottom, int):
+            raise TypeError('Top and bottom must be int')
+        if not bottom:
+            raise ZeroDivisionError
         self.__top = top
         self.__bottom = bottom
-        if type(self.__top) is int and type(self.__bottom) is int:
-            try:
-                reduce_form = Fraction(self.__top, self.__bottom)
-            except ZeroDivisionError:
-                quit("divided by zero")
-        else:
-            quit("incorrectly entered values")
+
 
     def show(self):
         return Fraction(self.__top, self.__bottom)
@@ -22,6 +22,6 @@ class Rational:
         return self.__top / self.__bottom
 
 
-a = Rational(2, 10)
+a = Rational(2,10)
 print(a.show())
 print(a.division())

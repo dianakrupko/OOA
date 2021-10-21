@@ -2,24 +2,43 @@ import re
 
 
 class TextFile:
-    def __init__(self, characters=0, words=0, sentences=0):
+    def __init__(self, myfile, characters=0, words=0, sentences=0):
+        self.myfile = myfile
         self.characters = characters
         self._words = words
         self.sentences = sentences
 
-    def numerate(self):
+    def numCharacters(self):
         try:
-            with open('myfile.txt') as file:
+            with open('myfile.txt', 'r') as file:
                 data = file.read()
                 characters = data
+        except FileNotFoundError:
+            raise FileNotFoundError('Error.This file was not found')
+        return f'Characters:{len(characters)}'
+
+    def numWords(self):
+        try:
+            with open('myfile.txt', 'r') as file:
+                data = file.read()
                 words = data.split()
+        except FileNotFoundError:
+            raise FileNotFoundError('Error.This file was not found')
+        return f'Words:{len(words)}'
+
+    def numSentences(self):
+        try:
+            with open('myfile.txt', 'r') as file:
+                data = file.read()
                 file.seek(0)
                 for line in file:
-                    self.sentences += len(re.split('\. |! |\? |\...', line))
+                    self.sentences += len(re.split('\. |! |\? |\[...]', line))
         except FileNotFoundError:
-            quit('Error.This file was not found')
-        return f'Characters: {len(characters)} \nWords: {len(words)} \nSentences: {self.sentences}'
+            raise FileNotFoundError('Error.This file was not found')
+        return f'Sentences:{self.sentences}'
 
 
-a = TextFile()
-print(a.numerate())
+a = TextFile('myfile.txt')
+print(a.numCharacters())
+print(a.numWords())
+print(a.numSentences())
