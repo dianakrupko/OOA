@@ -39,12 +39,12 @@ class Node:
     #The method returns the price of the product through the key
     def func(self, key):
         if key < self.key:
-            if self.left is None:
-                return str(key) + " Not Found"
+            if not self.left:
+                raise ValueError (str(key) + " Not Found")
             return self.left.func(key)
         elif key > self.key:
-            if self.right is None:
-                return str(key) + " Not Found"
+            if not self.right:
+                raise ValueError (str(key) + " Not Found")
             return self.right.func(key)
         else:
             return self.price

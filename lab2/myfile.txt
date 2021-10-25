@@ -1,5 +1,5 @@
 -Hello! What's your name?
--Hi, my name's Diana.
+-Hi. My name's Diana.
 -How old are you?
 -I'm 19.
--By...
+-By.

@@ -5,7 +5,7 @@ class TextFile:
     def __init__(self, myfile, characters=0, words=0, sentences=0):
         self.myfile = myfile
         self.characters = characters
-        self._words = words
+        self.words = words
         self.sentences = sentences
 
     def numCharacters(self):
@@ -20,19 +20,23 @@ class TextFile:
     def numWords(self):
         try:
             with open('myfile.txt', 'r') as file:
-                data = file.read()
-                words = data.split()
+                for line in file:
+                    for i in ['!', '?', '.',"'" ',','-', ':', ';']:
+                        line = line.replace(i, ' ')
+                    self.words += len(line.split())
         except FileNotFoundError:
             raise FileNotFoundError('Error.This file was not found')
-        return f'Words:{len(words)}'
+        return f'Words:{self.words}'
 
     def numSentences(self):
         try:
             with open('myfile.txt', 'r') as file:
-                data = file.read()
                 file.seek(0)
                 for line in file:
-                    self.sentences += len(re.split('\. |! |\? |\[...]', line))
+                    line=line.replace(' ', '')
+                    for i in ['!', '?', '.']:
+                        line = line.replace(i, ' ')
+                    self.sentences += len(line.split())
         except FileNotFoundError:
             raise FileNotFoundError('Error.This file was not found')
         return f'Sentences:{self.sentences}'
