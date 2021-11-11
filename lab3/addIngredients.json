@@ -1,0 +1,22 @@
+{
+    "chicken": {
+        "cost": 25,
+        "mass": 100
+    },
+    "potato": {
+        "cost": 10,
+        "mass": 100
+    },
+    "beef": {
+        "cost": 20,
+        "mass": 100
+    },
+    "onion": {
+        "cost": 5,
+        "mass": 100
+    },
+    "mushroom": {
+        "cost": 18,
+        "mass": 100
+    }
+}

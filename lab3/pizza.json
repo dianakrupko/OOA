@@ -1,0 +1,64 @@
+{
+    "Sunday": {
+        "name": "\"Paperoni\"",
+        "ingredients": [
+            "meat",
+            "cheese",
+            "tomato"
+        ],
+        "cost": 80
+    },
+    "Monday": {
+        "name": "\"Margarita\"",
+        "ingredients": [
+            "meat",
+            "cheese",
+            "sausage"
+        ],
+        "cost": 70
+    },
+    "Tuesday": {
+        "name": "\"Four Cheeses\"",
+        "ingredients": [
+            "cheese",
+            "tomato",
+            "sausage"
+        ],
+        "cost": 99
+    },
+    "Wednesday": {
+        "name": "\"Calzone\"",
+        "ingredients": [
+            "cheese",
+            "tomato",
+            "meat"
+        ],
+        "cost": 80
+    },
+    "Thursday": {
+        "name": "\"Neapolitan\"",
+        "ingredients": [
+            "cheese",
+            "tomato",
+            "beef"
+        ],
+        "cost": 95
+    },
+    "Friday": {
+        "name": "\"Hunting\"",
+        "ingredients": [
+            "cheese",
+            "tomato",
+            "sausage"
+        ],
+        "cost": 85
+    },
+    "Saturday": {
+        "name": "\"Italian\"",
+        "ingredients": [
+            "cheese",
+            "tomato"
+        ],
+        "cost": 100
+    }
+}
