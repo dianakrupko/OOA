@@ -2,7 +2,7 @@ import timeit
 import random
 import os
 
-with open('myFileNum.txt', "r+") as myNumber:
+with open('myFileNum.txt', "w") as myNumber:
     while os.path.getsize("myFileNum.txt") <=50*1048576:
         line = str(random.randint(1, 10)) + "\n"
         myNumber.write(line)
