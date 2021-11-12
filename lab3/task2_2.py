@@ -471,58 +471,6 @@ class Saturday(Pizza):
         return f"Day: {self.day}\nPizza {self.species}:\n\t{', '.join(self.pizza_ingredients)}.\nThe price of PizzaDay {self.species}: {self.sumCostBasePizza()} "
 
 
-# class Order():
-#     def __init__(self, customer, pizzas,n, addingr):
-#         """
-#         Itializes all necessary attributes in Order
-#         :param customer:the customer who places the order
-#         :param pizzas: pizzas that were ordered
-#         """
-#         if not all([isinstance(pizz, Friday)for pizz in pizzas]):
-#             raise TypeError("Wrong type")
-#         if not isinstance(customer, Customer):
-#             raise TypeError
-#         if not isinstance(addingr, Pizzeria):
-#             raise TypeError
-#         self.customer = customer
-#         self.pizzas = pizzas
-#         self.addingr=addingr
-#         self.n=n
-#
-#     # def addPizza(self, new_pizza):
-#     #     """
-#     #     The method adds pizza to order
-#     #     :param new_pizza: new pizza with or without additional ingredients
-#     #     """
-#     #     if not isinstance(new_pizza, Friday):
-#     #         raise TypeError
-#     #     self.pizzas.append(new_pizza)
-#     #
-#     # def delPizza(self, name_pizza):
-#     #     """
-#     #     The method that removes pizza from the order
-#     #     :param name_pizza: the name of the pizza to be removed from the order
-#     #     """
-#     #     if not isinstance(name_pizza, Friday):
-#     #         raise TypeError
-#     #     self.pizzas.remove(name_pizza)
-#
-#     def getTotalCost(self):
-#         """
-#         The method returns the price of the entire order
-#         :return: total cost
-#         """
-#         total = 0
-#         for pizz in self.pizzas:
-#             total += self.n*pizz.sumCostBasePizza()
-#         return total+self.addingr.sumCostNewIngr()
-#
-#     def __str__(self):
-#         """
-#         str method for the class Order
-#         :return: string with customer and the price of his order
-#         """
-#         return f"{'=' * 10}Order{'=' * 10} {self.customer}\n{'-' * 25} \nThe total cost: {self.getTotalCost()}"
 class Order():
     def __init__(self, customer, pizzas, n, addingr):
         """
