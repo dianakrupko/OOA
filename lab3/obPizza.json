@@ -1,0 +1,9 @@
+{
+    "Sunday": "Pizza \"Paperoni\":\n\t('onion', 'meat', 'cheese')\nThe price of PizzaDay \"Paperoni\": 100 \nThe price of new ingredient tomato: 20\nThe price of pizza \"Paperoni\" with new ingredient tomato:120",
+    "Monday": "Pizza \"Margarita\":\n\t('meat', 'beef')\nThe price of PizzaDay \"Margarita\": 80 \nThe price of new ingredient potato: 15\nThe price of pizza \"Margarita\" with new ingredient potato:95",
+    "Tuesday": "Pizza \"Four Cheeses\":\n\t('onion', 'meat', 'beef')\nThe price of PizzaDay \"Four Cheeses\": 105 \nThe price of new ingredient potato: 15\nThe price of pizza \"Four Cheeses\" with new ingredient potato:120",
+    "Wednesday": "Pizza \"Neopolitan\":\n\t('onion', 'meat', 'beef')\nThe price of PizzaDay \"Neopolitan\": 96 \nThe price of new ingredient chicken: 30\nThe price of pizza \"Neopolitan\" with new ingredient chicken:126",
+    "Thursday": "Pizza \"Calzone\":\n\t('onion', 'meat', 'beef')\nThe price of PizzaDay \"Calzone\": 99 \nThe price of new ingredient cheese: 30\nThe price of pizza \"Calzone\" with new ingredient cheese:129",
+    "Friday": "Pizza \"Hunting\":\n\t('cheese', 'meat', 'beef')\nThe price of PizzaDay \"Hunting\": 90 \nThe price of new ingredient chicken, potato: 45\nThe price of pizza \"Hunting\" with new ingredient chicken, potato:135",
+    "Saturday": "Pizza \"Paperoni\":\n\t('onion', 'meat', 'cheese')\nThe price of PizzaDay \"Paperoni\": 100 \nThe price of new ingredient tomato: 20\nThe price of pizza \"Paperoni\" with new ingredient tomato:120"
+}
