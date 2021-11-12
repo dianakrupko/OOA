@@ -2,27 +2,28 @@ import json
 import numpy as np
 from datetime import datetime, date, timedelta
 from random import choice, randint, random, randrange
+from task1_const import ADVANCE,LATE,STUDENT
 
 ticketEvent = {
     "Event1": {
         "cost": 220,
-        "date":"2021-11-15"
+        "date": "2021-11-15"
     },
     "Event2": {
         "cost": 150,
-        "date":"2022-2-15"
+        "date": "2022-2-15"
     },
     "Event3": {
         "cost": 190,
-        "date":"2021-11-21"
+        "date": "2021-11-21"
     },
     "Event4": {
         "cost": 250,
-        "date":"2021-12-16"
+        "date": "2021-12-16"
     },
     "Event5": {
         "cost": 270,
-        "date":"2021-11-19"
+        "date": "2021-11-19"
     }
 }
 with open("ticket.json", "w") as ticketIvent:
@@ -55,23 +56,22 @@ class RegularTicket:
     def __init__(self, event):
         self.event = event
         self.regular_price_ticket = ticketEvent[event]['cost']
-        self.date=ticketEvent[name_event]["date"]
+        self.date = ticketEvent[name_event]["date"]
 
     def totalcost(self):
         return self.regular_price_ticket
 
     def identifier(self):
-        return id(str(self.event) + str(self.regular_price_ticket)+str(self.totalcost()))
+        return id(str(self.event) + str(self.regular_price_ticket) + str(self.totalcost()))
 
     def __str__(self):
         return f"ID{self.identifier()}\nThe final price: {self.totalcost()}"
 
 
-
 class AdvanceTicket(RegularTicket):
 
     def totalcost(self):
-        return (1 - 60 / 100) * self.regular_price_ticket
+        return (1 - ADVANCE) * self.regular_price_ticket
 
     def __str__(self):
         return f"ID{self.identifier()}\nThe final price: {self.totalcost()}"
@@ -79,7 +79,7 @@ class AdvanceTicket(RegularTicket):
 
 class LateTicket(RegularTicket):
     def totalcost(self):
-        return (1 + 10 / 100) * self.regular_price_ticket
+        return (1 + LATE) * self.regular_price_ticket
 
     def __str__(self):
         return f"ID{self.identifier()}\nThe final price: {self.totalcost()}"
@@ -87,7 +87,7 @@ class LateTicket(RegularTicket):
 
 class StudentTicket(RegularTicket):
     def totalcost(self):
-        return 0.5 * self.regular_price_ticket
+        return STUDENT * self.regular_price_ticket
 
     def __str__(self):
         return f"ID{self.identifier()}\nThe final price: {self.totalcost()}"
@@ -96,13 +96,13 @@ class StudentTicket(RegularTicket):
 name_event = choice(list(ticketEvent.keys()))
 ev = Event(title=name_event)
 print(ev)
-#dateEvent = ev.generate_random_date().date()
+# dateEvent = ev.generate_random_date().date()
 
-dateEvent=datetime.strptime(ticketEvent[name_event]["date"], "%Y-%m-%d")
-dateEv=dateEvent.date()
+dateEvent = datetime.strptime(ticketEvent[name_event]["date"], "%Y-%m-%d")
+dateEv = dateEvent.date()
 print("Date of the event: ", dateEv)
 datePurchase = datetime.now().date()
-#datePurch=datetime.strptime("datePurchase", "%Y-%m-%d")
+# datePurch=datetime.strptime("datePurchase", "%Y-%m-%d")
 print("Date of ticket purchase: ", datePurchase)
 
 student = False
@@ -129,4 +129,3 @@ def ticketSelection():
 
 myticket = ticketSelection()
 print(myticket)
-
