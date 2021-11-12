@@ -518,36 +518,19 @@ today = time.strftime("%A", time.localtime())
 #today = choice(list(data_pizza.keys()))
 ingr = Pizza(sauce=ingredients["sauce"]["cost"], season=ingredients["season"]["cost"])
 
-def pizzaDaySelection(day):
-    if day == "Sunday":
-        obj1 = Sunday(day)
-        return obj1
-    elif day == "Monday":
-        obj2 = Monday(day)
-        return obj2
-    elif day == "Tuesday":
-        obj3 = Tuesday(day)
-        return obj3
-    elif day == "Wednesday":
-        obj4 = Wednesday(day)
-        return obj4
-    elif day == "Thursday":
-        obj5 = Thursday(day)
-        return obj5
-    elif day == "Friday":
-        obj6 = Friday(day)
-        return obj6
-    elif day == "Saturday":
-        obj7 = Saturday(day)
-        return obj7
-    else:
-        return f"Error"
-
-
-mypizza = pizzaDaySelection(today)
+def find_day_pizza(self):
+    pizza_days = {
+        "Sunday": Sunday(today),
+        "Monday": Monday(today),
+        "Tuesday": Tuesday(today),
+        "Wednesday": Wednesday(today),
+        'Thursday': Thursday(today),
+        "Friday": Friday(today),
+        "Saturday": Saturday(today)
+    }
+    return pizza_days[today]
+mypizza=find_day_pizza(today)
 print(mypizza)
-print(ingr)
-
 customer = Customer("Krupko", "Diana", 380971337292)
 order = Order(customer, mypizza, 3, ingr)
 print(order)
