@@ -1,3 +1,3 @@
 ADVANCE = 0.6
-LATE = 0.1
+LATE = 1.1
 STUDENT = 0.5

@@ -1,0 +1,22 @@
+{
+    "Popular IT cases": {
+        "cost": 220,
+        "date": "2021-12-13"
+    },
+    "Vodafone Data Science": {
+        "cost": 150,
+        "date": "2022-2-15"
+    },
+    "Data Sciense Competition": {
+        "cost": 200,
+        "date": "2021-11-22"
+    },
+    "Soft skills for IT": {
+        "cost": 250,
+        "date": "2021-12-16"
+    },
+    "How to start a career in IT": {
+        "cost": 270,
+        "date": "2021-11-19"
+    }
+}
