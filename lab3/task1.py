@@ -98,7 +98,18 @@ class Event:
         """
         self.title = title
         self.regular_price = event_titles[title]['cost']
-        self.tickets_ordered = 0
+
+        @property
+        def title(self):
+            return self.__title
+
+        @title.setter
+        def title(self, title):
+            if not isinstance(title, str):
+                raise TypeError('The title consists of letters')
+            if title not in event_titles.keys():
+                raise ValueError("There is no such event")
+            self.__title = title
 
     def generate_random_date(self):
         year = np.random.randint(2021, 2025)
