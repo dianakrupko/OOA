@@ -1,1 +1,1 @@
-# Python
+# Object-oriented analysis
