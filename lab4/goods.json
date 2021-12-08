@@ -1,0 +1,14 @@
+{
+    "hoody": {
+        "price": 400,
+        "quantity": 10
+    },
+    "jeans": {
+        "price": 750,
+        "quantity": 5
+    },
+    "sweater": {
+        "price": 600,
+        "quantity": 3
+    }
+}
