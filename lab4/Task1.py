@@ -41,150 +41,101 @@ class Rational:
         self.denominator = int(self.denominator / gcd)
 
     def __add__(self, other):
-        if type(other) == type(self):
-            numerator = self.numerator * other.denominator + self.denominator * other.numerator
-            denominator = self.denominator * other.denominator
-        else:
-            numerator = self.numerator + self.denominator * other
-            denominator = self.denominator
+        if not isinstance(other, Rational):
+            raise TypeError
+        numerator = self.numerator * other.denominator + self.denominator * other.numerator
+        denominator = self.denominator * other.denominator
         return Rational(numerator, denominator)
 
     def __sub__(self, other):
-        if type(other) == type(self):
-            numerator = self.numerator * other.denominator - self.denominator * other.numerator
-            denominator = self.denominator * other.denominator
-        else:
-            numerator = self.numerator - self.denominator * other
-            denominator = self.denominator
+        if not isinstance(other, Rational):
+            raise TypeError
+        numerator = self.numerator * other.denominator - self.denominator * other.numerator
+        denominator = self.denominator * other.denominator
         return Rational(numerator, denominator)
 
     def __mul__(self, other):
-        if type(other) == type(self):
-            numerator = self.numerator * other.numerator
-            denominator = self.denominator * other.denominator
-        else:
-            numerator = self.numerator * other
-            denominator = self.denominator
+        if not isinstance(other, Rational):
+            raise TypeError
+        numerator = self.numerator * other.numerator
+        denominator = self.denominator * other.denominator
+
         return Rational(numerator, denominator)
 
     def __truediv__(self, other):
-        if type(other) == type(self):
-            numerator = self.numerator * other.denominator
-            denominator = self.denominator * other.numerator
-        else:
-            numerator = self.numerator
-            denominator = self.denominator * other
+        if not isinstance(other, Rational):
+            raise TypeError
+        numerator = self.numerator * other.denominator
+        denominator = self.denominator * other.numerator
         return Rational(numerator, denominator)
 
     def __iadd__(self, other):
-        if type(other) == type(self):
-            self.numerator = self.numerator * other.denominator + self.denominator * other.numerator
-            self.denominator = self.denominator * other.denominator
-        else:
-            self.numerator = self.numerator + self.denominator * other
+        if not isinstance(other, Rational):
+            raise TypeError
+        self.numerator = self.numerator * other.denominator + self.denominator * other.numerator
+        self.denominator = self.denominator * other.denominator
         return self
 
     def __isub__(self, other):
-        if type(other) == type(self):
-            self.numerator = self.numerator * other.denominator - self.denominator * other.numerator
-            self.denominator = self.denominator * other.denominator
-        else:
-            self.numerator = self.numerator - self.denominator * other
+        if not isinstance(other, Rational):
+            raise TypeError
+        self.numerator = self.numerator * other.denominator - self.denominator * other.numerator
+        self.denominator = self.denominator * other.denominator
         return self
 
     def __imul__(self, other):
-        if type(other) == type(self):
-            self.numerator = self.numerator * other.numerator
-            self.denominator = self.denominator * other.denominator
-        else:
-            self.numerator = self.numerator * other
+        if not isinstance(other, Rational):
+            raise TypeError
+        self.numerator = self.numerator * other.numerator
+        self.denominator = self.denominator * other.denominator
+
         return self
 
     def __itruediv__(self, other):
-        if type(other) == type(self):
-            self.numerator = self.numerator * other.denominator
-            self.denominator = self.denominator * other.numerator
-        else:
-            self.denominator = self.denominator * other
+        if not isinstance(other, Rational):
+            raise TypeError
+        self.numerator = self.numerator * other.denominator
+        self.denominator = self.denominator * other.numerator
         return self
 
     def __lt__(self, other):
-        if type(other) == type(self):
-            if self.numerator * other.denominator < other.numerator * self.denominator:
-                return True
-            else:
-                return False
-        else:
-            if self.numerator < other * self.denominator:
-                return True
-            else:
-                return False
+        if not isinstance(other, Rational):
+            raise TypeError
+
+        return self.numerator * other.denominator < other.numerator * self.denominator
+
 
     def __le__(self, other):
-        if type(other) == type(self):
-            if self.numerator * other.denominator <= other.numerator * self.denominator:
-                return True
-            else:
-                return False
-        else:
-            if self.numerator <= other * self.denominator:
-                return True
-            else:
-                return False
+        if not isinstance(other, Rational):
+            raise TypeError
+        return self.numerator * other.denominator <= other.numerator * self.denominator
 
     def __gt__(self, other):
-        if type(other) == type(self):
-            if self.numerator * other.denominator > other.numerator * self.denominator:
-                return True
-            else:
-                return False
-        else:
-            if self.numerator > other * self.denominator:
-                return True
-            else:
-                return False
+        if not isinstance(other, Rational):
+            raise TypeError
+        return self.numerator * other.denominator > other.numerator * self.denominator
 
     def __ge__(self, other):
-        if type(other) == type(self):
-            if self.numerator * other.denominator >= other.numerator * self.denominator:
-                return True
-            else:
-                return False
-        else:
-            if self.numerator >= other * self.denominator:
-                return True
-            else:
-                return False
+        if not isinstance(other, Rational):
+            raise TypeError
+        return self.numerator * other.denominator >= other.numerator * self.denominator
 
     def __eq__(self, other):
-        if type(other) == type(self):
-            if self.numerator * other.denominator == other.numerator * self.denominator:
-                return True
-            else:
-                return False
-        else:
-            if self.numerator == other * self.denominator:
-                return True
-            else:
-                return False
+        if not isinstance(other, Rational):
+            raise TypeError
+        return self.numerator * other.denominator == other.numerator * self.denominator
+
 
     def __ne__(self, other):
-        if type(other) == type(self):
-            if self.numerator * other.denominator != other.numerator * self.denominator:
-                return True
-            else:
-                return False
-        else:
-            if self.numerator != other * self.denominator:
-                return True
-            else:
-                return False
+        if not isinstance(other, Rational):
+            raise TypeError
+        return self.numerator * other.denominator != other.numerator * self.denominator
+
 
     def __str__(self):
         if self.denominator == 1:
             return f'{self.numerator}'
-        else:
-            return "{}/{}".format(self.numerator, self.denominator)
+        return "{}/{}".format(self.numerator, self.denominator)
 
 
 a = Rational(3, 4)
@@ -199,6 +150,8 @@ print(a, '<', b, '=', a < b)
 print(a, '<=', b, '=', a <= b)
 print(a, '==', b, '=', a == b)
 print(a, '!=', b, '=', a != b)
+
+
 # print(a, '+=', b, '=')
 # a+=b
 # print("\t\t\t",a)
