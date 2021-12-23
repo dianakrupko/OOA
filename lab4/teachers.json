@@ -1,12 +1,12 @@
-[
-  {
+{
+  "1": {
     "name": "Diana Krupko",
     "qualification": "senior teacher",
     "phone": 380971337911
   },
-  {
+  "2": {
     "name": "Petro Efimov",
     "qualification": "senior teacher",
     "phone": 380971987211
   }
-]
+}

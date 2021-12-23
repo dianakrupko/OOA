@@ -1,14 +1,24 @@
-[
-  {
+{
+  "Python Programming": {
     "type": "OffsiteCourse",
     "title": "Python Programming",
-    "program": ["Data types", "Variables", "Standard input / output", "Logic operations"],
+    "program": [
+      "Data types",
+      "Variables",
+      "Standard input / output",
+      "Logic operations"
+    ],
     "description": "In this Python programming course, you will learn the basics of programming"
   },
-  {
+  "SQL for all": {
     "type": "LocalCourse",
     "title": "SQL for all",
-    "program": ["Familiarity with the database", "Regular iterations", "Sorting ORDER BY rows", "Aggregate functions: COUNT, SUM, MIN, MAX, AVG"],
+    "program": [
+      "Familiarity with the database",
+      "Regular iterations",
+      "Sorting ORDER BY rows",
+      "Aggregate functions: COUNT, SUM, MIN, MAX, AVG"
+    ],
     "description": "In the course you master SQL to the level of writing complex SQL-queries and train on the data of the trading company"
   }
-]
+}

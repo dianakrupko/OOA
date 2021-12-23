@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "InventoryItem",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "qualification": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "integer"
+    }
+  },
+  "required": ["name", "qualification","phone"]
+}

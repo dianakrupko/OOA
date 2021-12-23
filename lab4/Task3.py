@@ -21,24 +21,22 @@ except FileNotFoundError:
 
 class ITeacher(ABC):
     @abstractmethod
-    def createTeacher(self):
+    def __str__(self):
         pass
 
 
 class ICourse(ABC):
     @abstractmethod
-    def createCourse(self):
+    def __str__(self):
         pass
 
 
 class ICourseFactory:
     @abstractmethod
-    def factoryCourse(self, courseTitle):
-        pass
+    def factoryCourse(self) -> ICourse: pass
 
     @abstractmethod
-    def factoryTeacher(self, teacherName):
-        pass
+    def factoryTeacher(self, name) -> ITeacher: pass
 
 
 """Derived interface classes"""
@@ -98,14 +96,9 @@ class Teacher(ITeacher):
     def addCourse(self, courses):
         self.course.append(courses)
 
-    def createTeacher(self):
-        return f"Teacher:{self.name}\tQualification: {self.qualification}\tPhone: {self.phone}"
 
     def __str__(self):
-        res = ""
-        for courses in self.course:
-            res += courses.title + '\n\t\t'
-        return f"Teacher:{self.name}\nCourse: {res}"
+        return f"Teacher:{self.name}\tQualification: {self.qualification}\tPhone: {self.phone}"
 
 
 class Course(ICourse):
@@ -147,62 +140,60 @@ class Course(ICourse):
             raise TypeError("Description course must be str")
         self.__description = description
 
-    def createCourse(self):
+    def __str__(self):
         return f"Course: {self.title}\t{self.program}"
 
 
-class LocalCourse(Course):
+class ILocalCourse(ABC):
+    def __str__(self):
+        pass
+
+
+class IOffsiteCourse(ABC):
+    def __str__(self):
+        pass
+
+
+class LocalCourse(Course, ILocalCourse):
     """Class LocalCourse subclass Course """
-
-    def __init__(self, title, program, description):
-        super().__init__(title, program, description)
-
-    def createCourse(self):
-        return f"Local:\t{self.title}\n\t\tProgram:{self.program}\n\t\tDescription:{self.description}"
+    def __str__(self):
+        return f"\nLocal course:\t{self.title}\n\t\tProgram:{self.program}\n\t\tDescription:{self.description}"
 
 
-class OffsiteCourse(Course):
+class OffsiteCourse(Course, IOffsiteCourse):
     """Class OffsiteCourse subclass Course """
-
-    def __init__(self, title, program, description):
-        super().__init__(title, program, description)
-
-    def createCourse(self):
-        return f"Offsite: {self.title}\n\t\tProgram{self.program}\n\t\t Description:{self.description}"
+    def __str__(self):
+        return f"\nOffsite course: {self.title}\n\t\tProgram{self.program}\n\t\t Description:{self.description}"
 
 
 class CourseFactory(ICourseFactory):
-    """Class CourseFactory"""
+    def factoryTeacher(self, numberTeather) -> ITeacher:
+        nameTeacher = dataTeachers[numberTeather]["name"]
+        qualification = dataTeachers[numberTeather]["qualification"]
+        phone = dataTeachers[numberTeather]["phone"]
+        return Teacher(nameTeacher,qualification,phone)
 
-    def factoryCourse(self, courseTitle):
-        for course in dataCourses:
-            if courseTitle == course["title"]:
-                takenCourse = course
-        dictCour = {
-            "LocalCourse": LocalCourse,
-            "OffsiteCourse": OffsiteCourse
+    def factoryCourse(self, nameCourse) -> ICourse:
+        type = dataCourses[nameCourse]["type"]
+        program = dataCourses[nameCourse]["program"]
+        description = dataCourses[nameCourse]["description"]
+        dictCourse={
+            "LocalCourse":LocalCourse(nameCourse,program,description),
+            "OffsiteCourse":OffsiteCourse(nameCourse,program,description)
         }
-        return dictCour[takenCourse["type"]](takenCourse["title"], takenCourse["program"], takenCourse["description"])
+        return dictCourse[type]
 
-    def factoryTeacher(self, teacherName):
-        for teacher in dataTeachers:
-            if teacherName == teacher["name"]:
-                takenTeacher = teacher
-        return Teacher(takenTeacher["name"], takenTeacher["qualification"], takenTeacher["phone"])
+    def TeacherCourses(self,numberTeacher,course):
+        return f"{self.factoryTeacher(numberTeacher)}{self.factoryCourse(course)}"
 
 
-def add(teacher, courses):
-    courses.teacher = teacher
-    teacher.addCourse(courses)
 
 
 f = CourseFactory()
-teacher = f.factoryTeacher("Diana Krupko")
-course_1 = f.factoryCourse("Python Programming")
-course_2 = f.factoryCourse("SQL for all")
-print(teacher.createTeacher())
-print(course_2.createCourse())
-print("=" * 150)
-add(teacher, course_1)
-add(teacher, course_2)
-print(teacher)
+teacher = f.factoryTeacher("1")
+# print(teacher)
+course1 = f.factoryCourse("SQL for all")
+course2=f.factoryCourse("Python Programming")
+# print(course1)
+# print(course2)
+print(f.TeacherCourses("1","Python Programming"))
